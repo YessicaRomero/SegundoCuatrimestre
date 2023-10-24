@@ -3,21 +3,25 @@ const datos = JSON.parse(response);
 
 
 
-const info = document.getElementById("info")
+const productscontainer = document.getElementById("products-container")
 
 
 for (let personaje of datos.results){
-    const personajeName = personaje.name;
-    const personajeStatus  = personaje.status;
-    const personajeSpecies = personaje.species;
-    const personajeType = personaje.type;
-    const personajeGender = personaje.gender;
-    const personajeOrigin = personaje.origin.name;
-    const personajeImagen = personaje.image;
-    const elem = document.createElement("article");
-     elem.innerHTML = `<h2>${personajeName},${personajeStatus},${personajeSpecies},${personajeType},${personajeGender},${personajeOrigin}, ${personajeImagen}</h2>`;
+    const card = document.createElement("article")
+   const cardContet = `
+ <h2>${personaje.name}</h2>
+ <p>${personaje.status}</p>
+ <p>${personaje.species}</p>
+ <p>${personaje.type}</p>
+<p> ${personaje.gender}</p>
+<p> ${personaje.origin.name}</p>
+ <img src="${personaje.imagen}" alt="${personaje.name}" />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
     
-    info.appendChild(elem)
-    }
+    `;
+    card.innerHTML = cardContet;
+    productscontainer.appendChild(card)
+}
+    
+    
 
 
